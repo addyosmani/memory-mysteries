@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mail</title>
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="images/touch/icon-128x128.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3372DF">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+  <!-- build:css styles/components/main.min.css -->
+  <link rel="stylesheet" href="styles/h5bp.css">
+  <link rel="stylesheet" href="styles/components/components.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+
+<body>
+  <header class="app-bar promote-layer">
+    <div class="app-bar-container">
+      <button class="menu">
+        <img src="images/hamburger.svg" alt="Menu">
+      </button>
+      <h1 class="logo">Mail</h1>
+      <section class="app-bar-actions">
+        <!-- Put App Bar Buttons Here -->
+        <button><i class="icon icon-cog"></i>
+        </button>
+      </section>
+    </div>
+  </header>
+
+  <nav class="navdrawer-container promote-layer">
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="#inbox">Inbox</a>
+      </li>
+      <li><a href="#" class="unimplemented">Drafts</a>
+      </li>
+      <li><a href="#" class="unimplemented">Sent</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <table class="table-4">
+      <colgroup>
+        <col span="1">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td data-th="Subject">
+            <details>
+              <summary>
+                <img src="images/irish.jpeg">
+                <div>
+                  <strong>Paul Irish</strong>
+                  <span>3:15PM</span>
+                  <p>Why is my memory usage growing?</p>
+                </div>
+              </summary>
+              <p class="grow-memory">
+                <p>Here's how you repro:</p>
+                <ol>
+                  <li>Open DevTools</li>
+
+                  <li>Select Timeline Tab</li>
+
+                  <li>Make sure "Capture memory" is selected</li>
+
+                  <li>Record</li>
+
+                  <li>Push The Button</li>
+
+                </ol>
+                <button class="button--primary" onclick="grow()">The Button</button>
+
+                <div id="nodes" style="display:none"></div>
+              </p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
+            <details>
+              <summary>
+                <img src="images/sindre.jpeg">
+                <div>
+                  <strong>Sindre Sorhus</strong>
+                  <span>3:15PM</span>
+                  <p>Is this how GC works?</p>
+                </div>
+              </summary>
+              <p class="gc-in-action">
+                <p>I'm trying to look at the time spent by the GC.</p>
+                <p>
+                  <button class="button--primary" onclick="start()">Start creating chunks</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="stop()">Stop!</button>
+                </p>
+              </p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
+            <details>
+              <summary>
+                <img src="images/gaunt.jpeg">
+                <div>
+                  <strong>Matt Gaunt</strong>
+                  <span>3:15PM</span>
+                  <p>What are scattered objects?</p>
+                </div>
+              </summary>
+              <p class="scattered-objects">
+
+                <p>Docs say "Objects of the same kind can be scattered among application data, and unintentionally, form a significant group, wasting memory.". Where do I see them?</p>
+                <p>
+                  <button class="button--primary" onclick="init()">Create scattered objects</button>
+                </p>
+              </p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
+            <details>
+              <summary>
+                <img src="images/lewis.jpeg">
+                <div>
+                  <strong>Paul Lewis</strong>
+                  <span>3:15PM</span>
+                  <p>How can I find detached nodes?</p>
+                </div>
+              </summary>
+              <p class="detached-nodes">
+
+                <p>So, yellow objects have JavaScript references on them
+                and red objects are detached nodes which are referenced from one with a yellow background.</p>
+                <p>Is this the right way to find them?</p>
+
+                <p>Watch nodes evolution in memory timeline</p>
+                <p>Take heap snapshots and find detached nodes</p>
+
+                <p>
+                  <button class="button--primary" onclick="createDetachedNodes()">Create detached nodes</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="cleanNodes()">Clean detached nodes</button>
+                </p>
+              </p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
+            <details>
+              <summary>
+                <img src="images/ebidel.jpeg">
+                <div>
+                  <strong>Eric Bidelman</strong>
+                  <span>3:15PM</span>
+                  <p>How does memory work with V8 hidden classes?</p>
+                </div>
+              </summary>
+              <p class="hidden-classes">
+
+                <p>Someone told me if the compiler can use hidden classes, your code will execute MUCH faster and will use MUCH LESS memory. Is this true?</p>
+
+                <ol>
+                  <li>Create some objects</li>
+
+                  <li>Take heap snapshot</li>
+
+                  <li>Compare memory usage</li>
+                </ol>
+
+                <p>
+                  <button class="button--primary" onclick="createObjects123()">Create objects</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="calculate()">Do some calculus</button>
+                </p>
+
+                <table>
+                  <tr>
+                    <th>With inner classes</th>
+
+                    <th>With slow objects</th>
+                  </tr>
+
+                  <tr>
+                    <td id="innerTime"></td>
+
+                    <td id="slowTime"></td>
+                  </tr>
+                </table>
+              </p>
+
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
+            <details>
+              <summary>
+                <img src="images/dodson.jpeg">
+                <div>
+                  <strong>Rob Dodson</strong>
+                  <span>3:15PM</span>
+                  <p>How do DOM nodes leak?</p>
+                </div>
+              </summary>
+              <p class="leaking-dom-nodes">
+                <p>I'm trying this out. Why are my nodes leaking?</p>
+
+                <ol>
+                  <li>Open Timeline tab.</li>
+
+                  <li>Start recording activty.</li>
+
+                  <li>Repeat the next steps and watch the Timeline
+
+                    <ol>
+                      <li>Create some nodes</li>
+                      <li>GC</li>
+                    </ol>
+                  </li>
+                  <li>Take a Heap Allocation</li>
+                  <li>Hover over items</li>
+                </ol>
+
+                <p>
+                  <button class="button--primary" onclick="createNodes()">Create nodes (some of them leaked)</button>
+                </p>
+              </p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
+            <details>
+
+              <summary>
+                <img src="images/kinlan.jpeg">
+                <div>
+                  <strong>Paul Kinlan</strong>
+                  <span>3:15PM</span>
+                  <p>Why is eval is evil (almost always)?</p>
+                </div>
+              </summary>
+
+              <p class="closures">
+
+                <p>How do I analyze the impact of closures on memory?.</p>
+
+                <p>Is it true 'eval' retains a reference on all the variables of the closure.</p>
+
+                <ol>
+                  <li>Start the creation of new closures</li>
+
+                  <li>Take a heap snapshot</li>
+
+                  <li>Find the closures (named lC, sC and eC)</li>
+                </ol>
+
+                <p>
+                  <button class="button--primary" onclick="largeClosures()">Closures mantain hold on large string</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="smallClosures()">Closures mantain hold only on small strings
+                  </button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="evalClosures()">Closures with eval</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="stopAndClear()">Stop and clear</button>
+                </p>
+                </script>
+
+              </p>
+
+              <p class="heap-allocations">
+
+                <p>Let's analyze the impact of closures on memory</p>
+
+                <p>You can see that 'eval' retains a reference on all the variables of the closure.</p>
+
+                <ol>
+                  <li>Start to record heap allocations</li>
+
+                  <li>Start the creation of new closures</li>
+
+                  <li>Analyze what is happening</li>
+                </ol>
+
+                <p>
+                  <button class="button--primary" onclick="largeClosures()">Closures mantain hold on large string</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="smallClosures()">Closures mantain hold only on small strings
+                  </button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="evalClosures()">Closures with eval</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="stopAndClear()">Stop and clear</button>
+                </p>
+              </p>
+
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
+            <details>
+
+              <summary>
+                <img src="images/saw.jpeg">
+                <div>
+                  <strong>Stephen Sawchuck</strong>
+                  <span>3:15PM</span>
+                  <p>Why are my DOM leaks bigger than expected??</p>
+                </div>
+              </summary>
+              <p class="dom-leaks-bigger">
+
+                <ol>
+                  <li>Start memory profiling. Watch node count.</li>
+
+                  <li>Create a subtree of dom nodes and save a reference to a leaf and subtree route
+                  </li>
+
+                  <li>Detach tree</li>
+
+                  <li>Watch the detached node count</li>
+
+                  <li>Remove tree reference</li>
+
+                  <li>Watch the detached node count</li>
+
+                  <li>Remove leaf reference</li>
+
+                  <li>Watch the detached node count</li>
+                </ol>
+
+                <p>
+                  <button class="button--primary" onclick="createTree()">Create tree</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="detachTree()">Detach tree</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="removeTreeReference()">Remove tree reference</button>
+                </p>
+
+                <p>
+                  <button class="button--primary" onclick="removeLeafReference()">Remove leaf reference</button>
+                </p>
+              </p>
+            </details>
+          </td>
+        </tr>
+        <tr hidden>
+          <td data-th="Subject">
+            <details>
+              <summary>
+                <img src="images/passy.png">
+                <div>
+                  <strong>Pascal Hartig</strong>
+                  <span>3:15PM</span>
+                  <p>Retaining path</p>
+                </div>
+              </summary>
+              <p class="retaining-path">
+
+                <ol>
+                  <li>Create path.</li>
+
+                  <li>Take heap snapshot.</li>
+
+                  <li>Select 'Dominators' view</li>
+                </ol>
+
+                <p>
+                  <button class="button--primary" onclick="createObjectsABC()">Create objects</button>
+                </p>
+                <script>
+                  'use strict';
+
+                  var path;
+
+                  function largStr() {
+                    return new Array(1000000).join('x');
+                  }
+
+                  function Z1(child1) {
+                    this.child1 = child1;
+                  }
+
+                  function Z2(child1) {
+                    this.child1 = child1;
+                  }
+
+                  function Y1(child1, child2) {
+                    this.child1 = child1;
+                    this.child2 = child2;
+                  }
+
+                  function Y2() {}
+
+                  function X1(child1) {
+                    this.child1 = child1;
+                  }
+
+                  function X2(child1) {
+                    this.child1 = child1;
+                  }
+
+                  function X3(child1) {
+                    this.child1 = child1;
+                  }
+
+                  function W(child1, child2, child3) {
+                    this.child1 = child1;
+                    this.child2 = child2;
+                    this.child3 = child3;
+
+                  }
+
+                  function Item() {
+                    this.content = largStr();
+                  }
+
+                  function createObjectsABC() {
+                    var item = new Item(),
+                      z1 = new Z1(item),
+                      z2 = new Z2(item),
+                      y1 = new Y1(z1, z2),
+                      y2 = new Y2(),
+                      x1 = new X1(y1),
+                      x2 = new X2(y1),
+                      x3 = new X3(y2),
+                      w = new W(x1, x2, x3);
+
+                    path = w;
+                  }
+                </script>
+              </p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
+            <details id="memleak">
+              <summary>
+                <img src="images/jake.png">
+                <div>
+                  <strong>Jake Archibald</strong>
+                  <span>3:15PM</span>
+                  <p>Help me fix my memory leak!</p>
+                </div>
+              </summary>
+              <p class="memory-leak">
+
+                <ol>
+                  <li>Discover and fix the memory leak</li>
+                </ol>
+                <hr>
+
+                <ul class="tabs">
+                  <li id="first" data-load="template1.html">Summer</li>
+
+                  <li id="second" data-load="template2.html">Autumn</li>
+
+                  <li id="third" data-load="template3.html">Winter</li>
+
+                  <li id="third" data-load="template4.html">Spring</li>
+                </ul>
+
+                <div id="content"></div>
+              </p>
+            </details>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <!-- build:js scripts/main.min.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-XXXXX-X', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- Built with love using Web Starter Kit -->
+
+  <!-- Examples -->
+  <script src="scripts/1-watch-memory-grow.js"></script>
+  <script src="scripts/2-gc-in-action.js"></script>
+  <script src="scripts/3-scattered-objects.js"></script>
+  <script src="scripts/4-detached-nodes.js"></script>
+  <script src="scripts/5-fast-slow-objects.js"></script>
+  <script src="scripts/6-dom-nodes-leak.js"></script>
+  <script src="scripts/7-closures.js"></script>
+  <script src="scripts/8-dom-leaks.js"></script>
+  <script src="scripts/9-memory-leaks.js"></script>
+
+</body>
+
+</html>
