@@ -21,7 +21,7 @@ function createSmallClosure() {
 function createEvalClosure() {
   var smallStr = 'x';
   var largeStr = new Array(1000000).join('x');
-  return function eC() {
+  return function eC(n) {
     eval('');
     return smallStr;
   };
