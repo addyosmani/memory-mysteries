@@ -97,3 +97,15 @@ function getContent(url) {
     }
   };
 }
+
+
+/*
+Problem:
+There is setInterval(move, 2000); in prepareGallery that will
+be called every click, and there is no clearInterval.
+A copy of prepareGallery with its property (elements, function
+definitions ecc) will be in memory each click.
+
+Fix:
+if(x) clearInterval(x); x = setInterval(move, 2000)
+*/

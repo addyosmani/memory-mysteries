@@ -79,6 +79,9 @@
                 </div>
               </summary>
               <p class="grow-memory">
+                <p>My app slows down when I click this button. Why?</p>
+
+                <!--
                 <p>Here's how you repro:</p>
                 <ol>
                   <li>Open DevTools</li>
@@ -92,9 +95,11 @@
                   <li>Push The Button</li>
 
                 </ol>
+              -->
                 <button class="button--primary" onclick="grow()">The Button</button>
 
                 <div id="nodes" style="display:none"></div>
+                <p>&lt;333z.</p>
               </p>
             </details>
           </td>
@@ -107,7 +112,7 @@
                 <div>
                   <strong>Sindre Sorhus</strong>
                   <span>3:15PM</span>
-                  <p>Is this how GC works?</p>
+                  <p>Where does GC fit in with memory profiling?</p>
                 </div>
               </summary>
               <p class="gc-in-action">
@@ -125,6 +130,38 @@
         </tr>
         <tr>
           <td data-th="Subject">
+            <details id="memleak">
+              <summary>
+                <img src="images/jake.png">
+                <div>
+                  <strong>Jake Archibald</strong>
+                  <span>3:15PM</span>
+                  <p>Help me fix my memory leak!</p>
+                </div>
+              </summary>
+              <p class="memory-leak">
+
+                <p>I'm letting you find and fix a memory leak in my app.</p>
+                <hr>
+
+                <ul class="tabs">
+                  <li id="first" data-load="template1.html">Summer</li>
+
+                  <li id="second" data-load="template2.html">Autumn</li>
+
+                  <li id="third" data-load="template3.html">Winter</li>
+
+                  <li id="third" data-load="template4.html">Spring</li>
+                </ul>
+
+                <div id="content"></div>
+              </p>
+              <p><strong>Also, please send a PR with the fix to my repo. Thx!</strong></p>
+            </details>
+          </td>
+        </tr>
+        <tr>
+          <td data-th="Subject">
             <details>
               <summary>
                 <img src="images/gaunt.jpeg">
@@ -135,8 +172,10 @@
                 </div>
               </summary>
               <p class="scattered-objects">
-
+                <p>The docs mention "scattered objects". What are they and where do I find them?</p>
+                <!--
                 <p>Docs say "Objects of the same kind can be scattered among application data, and unintentionally, form a significant group, wasting memory.". Where do I see them?</p>
+              -->
                 <p>
                   <button class="button--primary" onclick="init()">Create scattered objects</button>
                 </p>
@@ -157,12 +196,18 @@
               </summary>
               <p class="detached-nodes">
 
+              <p>Today, I walked into the gym and did 1 push up in front of everyone, then ripped off my shirt and walked out grunting
+              'You did it. You did it.'</p>
+                <p>Anyway, I'm trying to understand what I see in Heap Snapshots. Help?</p>
+                <!--
                 <p>So, yellow objects have JavaScript references on them
                 and red objects are detached nodes which are referenced from one with a yellow background.</p>
                 <p>Is this the right way to find them?</p>
-
+              -->
+                <!--
                 <p>Watch nodes evolution in memory timeline</p>
                 <p>Take heap snapshots and find detached nodes</p>
+              -->
 
                 <p>
                   <button class="button--primary" onclick="createDetachedNodes()">Create detached nodes</button>
@@ -232,11 +277,11 @@
                 <div>
                   <strong>Rob Dodson</strong>
                   <span>3:15PM</span>
-                  <p>How do DOM nodes leak?</p>
+                  <p>Where can I see leaky DOM nodes?</p>
                 </div>
               </summary>
               <p class="leaking-dom-nodes">
-                <p>I'm trying this out. Why are my nodes leaking?</p>
+                <p>I'm trying this out. I suspect my <code>leakedNodes</code> array is leaking.</p>
 
                 <ol>
                   <li>Open Timeline tab.</li>
@@ -270,15 +315,11 @@
                 <div>
                   <strong>Paul Kinlan</strong>
                   <span>3:15PM</span>
-                  <p>Why is eval is evil (almost always)?</p>
+                  <p>How do I analyze the impact of closures on memory?</p>
                 </div>
               </summary>
 
               <p class="closures">
-
-                <p>How do I analyze the impact of closures on memory?.</p>
-
-                <p>Is it true 'eval' retains a reference on all the variables of the closure.</p>
 
                 <ol>
                   <li>Start the creation of new closures</li>
@@ -307,39 +348,6 @@
                 </script>
 
               </p>
-
-              <p class="heap-allocations">
-
-                <p>Let's analyze the impact of closures on memory</p>
-
-                <p>You can see that 'eval' retains a reference on all the variables of the closure.</p>
-
-                <ol>
-                  <li>Start to record heap allocations</li>
-
-                  <li>Start the creation of new closures</li>
-
-                  <li>Analyze what is happening</li>
-                </ol>
-
-                <p>
-                  <button class="button--primary" onclick="largeClosures()">Closures mantain hold on large string</button>
-                </p>
-
-                <p>
-                  <button class="button--primary" onclick="smallClosures()">Closures mantain hold only on small strings
-                  </button>
-                </p>
-
-                <p>
-                  <button class="button--primary" onclick="evalClosures()">Closures with eval</button>
-                </p>
-
-                <p>
-                  <button class="button--primary" onclick="stopAndClear()">Stop and clear</button>
-                </p>
-              </p>
-
             </details>
           </td>
         </tr>
@@ -484,40 +492,6 @@
             </details>
           </td>
         </tr>
-        <tr>
-          <td data-th="Subject">
-            <details id="memleak">
-              <summary>
-                <img src="images/jake.png">
-                <div>
-                  <strong>Jake Archibald</strong>
-                  <span>3:15PM</span>
-                  <p>Help me fix my memory leak!</p>
-                </div>
-              </summary>
-              <p class="memory-leak">
-
-                <ol>
-                  <li>Discover and fix the memory leak</li>
-                </ol>
-                <hr>
-
-                <ul class="tabs">
-                  <li id="first" data-load="template1.html">Summer</li>
-
-                  <li id="second" data-load="template2.html">Autumn</li>
-
-                  <li id="third" data-load="template3.html">Winter</li>
-
-                  <li id="third" data-load="template4.html">Spring</li>
-                </ul>
-
-                <div id="content"></div>
-              </p>
-            </details>
-          </td>
-        </tr>
-        <tr>
           <td data-th="Subject">
             <details>
               <summary>
